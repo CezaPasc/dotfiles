@@ -1,13 +1,16 @@
 #!/bin/sh
 
 load_vim () {
-	cp home/.vim.rc ~/.vim.rc
-	cp -r home/.vim/ ~/.vim
+	echo "Loading vim config files..."
+	cp home/.vimrc ~/.vimrc
+	cp -r home/.vim ~/.vim/
 }
 
 save_vim () {
-	cp ~/.vim.rc home/
-	cp -r ~/.vim/ home/
+	echo "Saving vim config files..."
+	cp ~/.vimrc home/.vimrc
+	cp -r ~/.vim/ home/.vim
+	rm -rf home/.vim/plugged
 }
 
 list_configs () {
@@ -18,7 +21,7 @@ load () {
 	echo "What to load?"
 	list_configs
 	read config
-	if [ "$choice" == "1" ]; then
+	if [ "$config" == "1" ]; then
 		load_vim	
 	fi	
 }
@@ -27,7 +30,7 @@ save () {
 	echo "What to save?"
 	list_configs
 	read config
-	if [ "$choice" == "1" ]; then
+	if [ "$config" == "1" ]; then
 		save_vim
 	fi	
 }
