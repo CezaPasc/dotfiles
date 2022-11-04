@@ -21,7 +21,7 @@ load () {
 	echo "What to load?"
 	list_configs
 	read config
-	if [ "$config" == "1" ]; then
+	if [ "$config" = "1" ]; then
 		load_vim	
 	fi	
 }
@@ -30,7 +30,7 @@ save () {
 	echo "What to save?"
 	list_configs
 	read config
-	if [ "$config" == "1" ]; then
+	if [ "$config" = "1" ]; then
 		save_vim
 	fi	
 }
@@ -40,9 +40,9 @@ echo "(1) Load"
 echo "(2) Save"
 read choice
 
-if [ "$choice" == "1" ]; then
+if [ "$choice" = "1" ]; then
 	load	
-elif [ "$choice" == "2" ]; then
+elif [ "$choice" = "2" ]; then
 	save
 else
 	echo "Invalid option"
